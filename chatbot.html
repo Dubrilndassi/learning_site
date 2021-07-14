@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+   <title>robot intelligent</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="chatrobot.css">
+<script src="http://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+</head>
+<body>
+<div class="wrapper">
+   <div class="title">robot online</div>
+   <div class="form">
+    <div class="box-inbox inbox">
+       <div class="icon">
+       <i class="fas fa-user"></i>
+       </div>
+       <div class="msg-header">
+       <p>salut à toi que puis-je faire pour t'aider ?</p>
+       </div>
+    </div>
+
+   </div>
+   <div class="typing-field">
+   <div class="input-data">
+   <input id="data" type="text" placeholder="écrire quelques choses ici...." required>
+   <button id="send-btn">envoi</button>
+   </div>
+   </div>
+</div>
+
+
+
+
+<script> 
+  $(document).ready(function(){
+  $("#send-btn").on("click", function(){
+  $value=$("#data").val();
+  $msg='<div class="user-inbox inbox"><div class="msg-header"><p>'+$value+'</p></div></div>';
+  $(".form").append($msg);
+  $("#data").val('');
+  
+  //commencer le code ajax
+  $.ajax({
+  url:'chatrobot.php',
+  Type:'POST',
+  data:'test='+$value,
+  success:function(result){
+  
+  }
+  });
+  });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
